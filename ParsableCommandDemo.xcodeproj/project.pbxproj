@@ -8,24 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		334DE257257376CC0029AFF5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334DE256257376CC0029AFF5 /* AppDelegate.swift */; };
-		334DE259257376CC0029AFF5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334DE258257376CC0029AFF5 /* SceneDelegate.swift */; };
 		334DE25B257376CC0029AFF5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334DE25A257376CC0029AFF5 /* ViewController.swift */; };
 		334DE25E257376CC0029AFF5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 334DE25C257376CC0029AFF5 /* Main.storyboard */; };
 		334DE260257376CD0029AFF5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 334DE25F257376CD0029AFF5 /* Assets.xcassets */; };
 		334DE263257376CD0029AFF5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 334DE261257376CD0029AFF5 /* LaunchScreen.storyboard */; };
 		334DE26E257376CD0029AFF5 /* ParsableCommandDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334DE26D257376CD0029AFF5 /* ParsableCommandDemoTests.swift */; };
-		334DE279257376CD0029AFF5 /* ParsableCommandDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334DE278257376CD0029AFF5 /* ParsableCommandDemoUITests.swift */; };
+		334DE28E25737FB30029AFF5 /* ParsableCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334DE28D25737FB30029AFF5 /* ParsableCommand.swift */; };
+		334DE29B257381000029AFF5 /* DrawDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334DE29A257381000029AFF5 /* DrawDeck.swift */; };
+		334DE29C257381000029AFF5 /* DrawDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334DE29A257381000029AFF5 /* DrawDeck.swift */; };
+		334DE2A0257381060029AFF5 /* ParsableCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334DE28D25737FB30029AFF5 /* ParsableCommand.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		334DE26A257376CD0029AFF5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 334DE24B257376CB0029AFF5 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 334DE252257376CB0029AFF5;
-			remoteInfo = ParsableCommandDemo;
-		};
-		334DE275257376CD0029AFF5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 334DE24B257376CB0029AFF5 /* Project object */;
 			proxyType = 1;
@@ -37,7 +32,6 @@
 /* Begin PBXFileReference section */
 		334DE253257376CC0029AFF5 /* ParsableCommandDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParsableCommandDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		334DE256257376CC0029AFF5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		334DE258257376CC0029AFF5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		334DE25A257376CC0029AFF5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		334DE25D257376CC0029AFF5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		334DE25F257376CD0029AFF5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -46,9 +40,8 @@
 		334DE269257376CD0029AFF5 /* ParsableCommandDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ParsableCommandDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		334DE26D257376CD0029AFF5 /* ParsableCommandDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsableCommandDemoTests.swift; sourceTree = "<group>"; };
 		334DE26F257376CD0029AFF5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		334DE274257376CD0029AFF5 /* ParsableCommandDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ParsableCommandDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		334DE278257376CD0029AFF5 /* ParsableCommandDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsableCommandDemoUITests.swift; sourceTree = "<group>"; };
-		334DE27A257376CD0029AFF5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		334DE28D25737FB30029AFF5 /* ParsableCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsableCommand.swift; sourceTree = "<group>"; };
+		334DE29A257381000029AFF5 /* DrawDeck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawDeck.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,13 +59,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		334DE271257376CD0029AFF5 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -81,7 +67,6 @@
 			children = (
 				334DE255257376CC0029AFF5 /* ParsableCommandDemo */,
 				334DE26C257376CD0029AFF5 /* ParsableCommandDemoTests */,
-				334DE277257376CD0029AFF5 /* ParsableCommandDemoUITests */,
 				334DE254257376CC0029AFF5 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -91,7 +76,6 @@
 			children = (
 				334DE253257376CC0029AFF5 /* ParsableCommandDemo.app */,
 				334DE269257376CD0029AFF5 /* ParsableCommandDemoTests.xctest */,
-				334DE274257376CD0029AFF5 /* ParsableCommandDemoUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -99,8 +83,8 @@
 		334DE255257376CC0029AFF5 /* ParsableCommandDemo */ = {
 			isa = PBXGroup;
 			children = (
+				334DE28C25737FA00029AFF5 /* ParsableCommand */,
 				334DE256257376CC0029AFF5 /* AppDelegate.swift */,
-				334DE258257376CC0029AFF5 /* SceneDelegate.swift */,
 				334DE25A257376CC0029AFF5 /* ViewController.swift */,
 				334DE25C257376CC0029AFF5 /* Main.storyboard */,
 				334DE25F257376CD0029AFF5 /* Assets.xcassets */,
@@ -119,13 +103,13 @@
 			path = ParsableCommandDemoTests;
 			sourceTree = "<group>";
 		};
-		334DE277257376CD0029AFF5 /* ParsableCommandDemoUITests */ = {
+		334DE28C25737FA00029AFF5 /* ParsableCommand */ = {
 			isa = PBXGroup;
 			children = (
-				334DE278257376CD0029AFF5 /* ParsableCommandDemoUITests.swift */,
-				334DE27A257376CD0029AFF5 /* Info.plist */,
+				334DE28D25737FB30029AFF5 /* ParsableCommand.swift */,
+				334DE29A257381000029AFF5 /* DrawDeck.swift */,
 			);
-			path = ParsableCommandDemoUITests;
+			path = ParsableCommand;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -166,24 +150,6 @@
 			productReference = 334DE269257376CD0029AFF5 /* ParsableCommandDemoTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		334DE273257376CD0029AFF5 /* ParsableCommandDemoUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 334DE283257376CD0029AFF5 /* Build configuration list for PBXNativeTarget "ParsableCommandDemoUITests" */;
-			buildPhases = (
-				334DE270257376CD0029AFF5 /* Sources */,
-				334DE271257376CD0029AFF5 /* Frameworks */,
-				334DE272257376CD0029AFF5 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				334DE276257376CD0029AFF5 /* PBXTargetDependency */,
-			);
-			name = ParsableCommandDemoUITests;
-			productName = ParsableCommandDemoUITests;
-			productReference = 334DE274257376CD0029AFF5 /* ParsableCommandDemoUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -197,10 +163,6 @@
 						CreatedOnToolsVersion = 12.2;
 					};
 					334DE268257376CD0029AFF5 = {
-						CreatedOnToolsVersion = 12.2;
-						TestTargetID = 334DE252257376CB0029AFF5;
-					};
-					334DE273257376CD0029AFF5 = {
 						CreatedOnToolsVersion = 12.2;
 						TestTargetID = 334DE252257376CB0029AFF5;
 					};
@@ -221,7 +183,6 @@
 			targets = (
 				334DE252257376CB0029AFF5 /* ParsableCommandDemo */,
 				334DE268257376CD0029AFF5 /* ParsableCommandDemoTests */,
-				334DE273257376CD0029AFF5 /* ParsableCommandDemoUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -244,13 +205,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		334DE272257376CD0029AFF5 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -260,7 +214,8 @@
 			files = (
 				334DE25B257376CC0029AFF5 /* ViewController.swift in Sources */,
 				334DE257257376CC0029AFF5 /* AppDelegate.swift in Sources */,
-				334DE259257376CC0029AFF5 /* SceneDelegate.swift in Sources */,
+				334DE29B257381000029AFF5 /* DrawDeck.swift in Sources */,
+				334DE28E25737FB30029AFF5 /* ParsableCommand.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,15 +223,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				334DE29C257381000029AFF5 /* DrawDeck.swift in Sources */,
 				334DE26E257376CD0029AFF5 /* ParsableCommandDemoTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		334DE270257376CD0029AFF5 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				334DE279257376CD0029AFF5 /* ParsableCommandDemoUITests.swift in Sources */,
+				334DE2A0257381060029AFF5 /* ParsableCommand.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,11 +236,6 @@
 			isa = PBXTargetDependency;
 			target = 334DE252257376CB0029AFF5 /* ParsableCommandDemo */;
 			targetProxy = 334DE26A257376CD0029AFF5 /* PBXContainerItemProxy */;
-		};
-		334DE276257376CD0029AFF5 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 334DE252257376CB0029AFF5 /* ParsableCommandDemo */;
-			targetProxy = 334DE275257376CD0029AFF5 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -509,44 +453,6 @@
 			};
 			name = Release;
 		};
-		334DE284257376CD0029AFF5 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = ParsableCommandDemoUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.creativegames.ParsableCommandDemoUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = ParsableCommandDemo;
-			};
-			name = Debug;
-		};
-		334DE285257376CD0029AFF5 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = ParsableCommandDemoUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.creativegames.ParsableCommandDemoUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = ParsableCommandDemo;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -573,15 +479,6 @@
 			buildConfigurations = (
 				334DE281257376CD0029AFF5 /* Debug */,
 				334DE282257376CD0029AFF5 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		334DE283257376CD0029AFF5 /* Build configuration list for PBXNativeTarget "ParsableCommandDemoUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				334DE284257376CD0029AFF5 /* Debug */,
-				334DE285257376CD0029AFF5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
