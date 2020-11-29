@@ -17,6 +17,8 @@
 		334DE29B257381000029AFF5 /* DrawDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334DE29A257381000029AFF5 /* DrawDeck.swift */; };
 		334DE29C257381000029AFF5 /* DrawDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334DE29A257381000029AFF5 /* DrawDeck.swift */; };
 		334DE2A0257381060029AFF5 /* ParsableCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334DE28D25737FB30029AFF5 /* ParsableCommand.swift */; };
+		335404002573A389003E9E5F /* Argument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335403FF2573A389003E9E5F /* Argument.swift */; };
+		335404012573A389003E9E5F /* Argument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335403FF2573A389003E9E5F /* Argument.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +44,7 @@
 		334DE26F257376CD0029AFF5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		334DE28D25737FB30029AFF5 /* ParsableCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsableCommand.swift; sourceTree = "<group>"; };
 		334DE29A257381000029AFF5 /* DrawDeck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawDeck.swift; sourceTree = "<group>"; };
+		335403FF2573A389003E9E5F /* Argument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Argument.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				334DE28C25737FA00029AFF5 /* ParsableCommand */,
+				335404042573A3A7003E9E5F /* Impl */,
 				334DE256257376CC0029AFF5 /* AppDelegate.swift */,
 				334DE25A257376CC0029AFF5 /* ViewController.swift */,
 				334DE25C257376CC0029AFF5 /* Main.storyboard */,
@@ -107,9 +111,17 @@
 			isa = PBXGroup;
 			children = (
 				334DE28D25737FB30029AFF5 /* ParsableCommand.swift */,
-				334DE29A257381000029AFF5 /* DrawDeck.swift */,
+				335403FF2573A389003E9E5F /* Argument.swift */,
 			);
 			path = ParsableCommand;
+			sourceTree = "<group>";
+		};
+		335404042573A3A7003E9E5F /* Impl */ = {
+			isa = PBXGroup;
+			children = (
+				334DE29A257381000029AFF5 /* DrawDeck.swift */,
+			);
+			path = Impl;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -215,6 +227,7 @@
 				334DE25B257376CC0029AFF5 /* ViewController.swift in Sources */,
 				334DE257257376CC0029AFF5 /* AppDelegate.swift in Sources */,
 				334DE29B257381000029AFF5 /* DrawDeck.swift in Sources */,
+				335404002573A389003E9E5F /* Argument.swift in Sources */,
 				334DE28E25737FB30029AFF5 /* ParsableCommand.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -223,6 +236,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				335404012573A389003E9E5F /* Argument.swift in Sources */,
 				334DE29C257381000029AFF5 /* DrawDeck.swift in Sources */,
 				334DE26E257376CD0029AFF5 /* ParsableCommandDemoTests.swift in Sources */,
 				334DE2A0257381060029AFF5 /* ParsableCommand.swift in Sources */,
