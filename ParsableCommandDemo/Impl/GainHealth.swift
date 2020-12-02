@@ -5,12 +5,12 @@
 //  Created by Hugues Stéphano TELOLAHY on 29/11/2020.
 //
 
-class GainHealth: ParsableCommand {
+class GainHealth: Command {
     
     @Argument(name: "player")
     var player: String
     
-    override func run() {
-        print("\(player) gain health")
+    override func run() -> String {
+        "\(player) gains health"
     }
 }

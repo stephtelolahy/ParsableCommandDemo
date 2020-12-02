@@ -12,33 +12,54 @@ class ParsableCommandDemoTests: XCTestCase {
     
     func test_ParseCommand() throws {
         let json = """
-        { "type": "drawDeck", "player": "p1", "count": 1 }
+        {
+          "type": "drawDeck",
+          "player": "p1",
+          "count": 2
+        }
         """
         let data = try XCTUnwrap(json.data(using: .utf8))
         let decoder = JSONDecoder()
         let command = try decoder.decode(DrawDeck.self, from: data)
         
-        XCTAssertEqual(String(describing: command), "ParsableCommandDemoTests.DrawDeck")
+        XCTAssertEqual(command.run(), "p1 draws 2 cards from deck")
     }
     
     func test_ParseCommand_WithDefaultValue() throws {
         let json = """
-        { "type": "drawDeck", "player": "p1" }
+        {
+          "type": "drawDeck",
+          "player": "p1"
+        }
         """
         let data = try XCTUnwrap(json.data(using: .utf8))
         let decoder = JSONDecoder()
         let command = try decoder.decode(DrawDeck.self, from: data)
         
-        XCTAssertEqual(String(describing: command), "ParsableCommandDemoTests.DrawDeck")
+        XCTAssertEqual(command.run(), "p1 draws 1 cards from deck")
     }
     
     func test_ParseCommandFails_IfMissingValue() throws {
         let json = """
-        { "type": "drawDeck" }
+        {
+          "type": "drawDeck"
+        }
         """
         let data = try XCTUnwrap(json.data(using: .utf8))
         let decoder = JSONDecoder()
         
+        XCTAssertThrowsError(try decoder.decode(DrawDeck.self, from: data))
+    }
+    
+    func test_ParseCommandFails_IfValueTypeMistmatch() throws {
+        let json = """
+        {
+          "type": "drawDeck",
+          "player": 0
+        }
+        """
+        let data = try XCTUnwrap(json.data(using: .utf8))
+        let decoder = JSONDecoder()
         
         XCTAssertThrowsError(try decoder.decode(DrawDeck.self, from: data))
     }
@@ -46,15 +67,48 @@ class ParsableCommandDemoTests: XCTestCase {
     func test_ParseArrayOfCommand() throws {
         let json = """
         [
-            { "type": "drawDeck", "player": "p1" },
-            { "type": "gainHealth", "player": "p1" }
+          {
+            "type": "drawDeck",
+            "player": "p1"
+          },
+          {
+            "type": "gainHealth",
+            "player": "p1"
+          }
         ]
         """
         let data = try XCTUnwrap(json.data(using: .utf8))
         let decoder = JSONDecoder()
-        let commands: [ParsableCommand] = try decoder.decode(family: CommandFamily.self, from: data)
+        let commands = try decoder.decode(family: CommandFamily.self, from: data)
         
-        XCTAssertEqual(String(describing: commands), "[ParsableCommandDemoTests.DrawDeck, ParsableCommandDemoTests.GainHealth]")
+        XCTAssertEqual(commands.count, 2)
+        XCTAssertEqual(commands[0].run(), "p1 draws 1 cards from deck")
+        XCTAssertEqual(commands[1].run(), "p1 gains health")
+    }
+    
+    func test_ParseCommandFeed() throws {
+        let json = """
+        {
+          "commands": [
+            {
+              "type": "drawDeck",
+              "player": "p1"
+            },
+            {
+              "type": "gainHealth",
+              "player": "p1"
+            }
+          ]
+        }
+        """
+        let data = try XCTUnwrap(json.data(using: .utf8))
+        let decoder = JSONDecoder()
+        let feed = try decoder.decode(CommandFeed.self, from: data)
+        
+        let commands = feed.commands
+        XCTAssertEqual(commands.count, 2)
+        XCTAssertEqual(commands[0].run(), "p1 draws 1 cards from deck")
+        XCTAssertEqual(commands[1].run(), "p1 gains health")
     }
     
 }

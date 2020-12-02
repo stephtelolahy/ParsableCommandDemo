@@ -65,12 +65,7 @@ extension Argument: DecodableArgument where Value: Decodable {
         } else if let defaultValue = defaultValue {
             wrappedValue = defaultValue
         } else {
-            throw ParsingError.missing(name)
+            throw DecodingError.keyNotFound(key, DecodingError.Context(codingPath: [], debugDescription: "Missing \(name)"))
         }
     }
-}
-
-enum ParsingError: Error {
-    case missing(String)
-    case invalid(String, Any)
 }

@@ -1,14 +1,18 @@
 //
-//  ParsableCommand.swift
+//  Command.swift
 //  ParsableCommandDemo
 //
 //  Created by Hugues Stéphano TELOLAHY on 29/11/2020.
 //
 
-class ParsableCommand: Decodable {
+protocol CommandProtocol {
+    func run() -> String
+}
+
+class Command: CommandProtocol, Decodable {
     
-    func run() {
-        fatalError("Unimplemented")
+    func run() ->String {
+        fatalError("Should be implemented in child class")
     }
     
     required init(from decoder: Decoder) throws {

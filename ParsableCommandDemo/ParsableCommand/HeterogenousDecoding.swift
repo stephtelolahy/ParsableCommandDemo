@@ -7,20 +7,59 @@
 
 import Foundation
 // Decode heterogenous array
-// https://medium.com/@kewindannerfjordremeczki/swift-4-0-decodable-heterogeneous-collections-ecc0e6b468cf
+// https://nsscreencast.com/episodes/395-decoding-heterogeneous-arrays
 
 /// To support a new class family, create an enum that conforms to this protocol and contains the different types.
-protocol ClassFamily: Decodable {
+protocol DecodableClassFamily: Decodable {
+    associatedtype BaseType : Decodable
+    
     /// The discriminator key.
     static var discriminator: Discriminator { get }
     
     /// Returns the class type of the object coresponding to the value.
-    func getType() -> AnyObject.Type
+    func getType() -> BaseType.Type
 }
 
 /// Discriminator key enum used to retrieve discriminator fields in JSON payloads.
 enum Discriminator: String, CodingKey {
     case type
+}
+
+extension KeyedDecodingContainer {
+    /// Decode a heterogeneous list of objects for a given family.
+    /// - Parameters:
+    ///     - family: The ClassFamily enum for the type family.
+    ///     - key: The CodingKey to look up the list in the current container.
+    /// - Returns: The resulting list of heterogeneousType elements.
+    func decode<F : DecodableClassFamily>(family: F.Type, forKey key: K) throws -> [F.BaseType] {
+        
+        var container = try nestedUnkeyedContainer(forKey: key)
+        var containerCopy = container
+        var items: [F.BaseType] = []
+        while !container.isAtEnd {
+            
+            let typeContainer = try container.nestedContainer(keyedBy: Discriminator.self)
+            do {
+                let family = try typeContainer.decode(F.self, forKey: F.discriminator)
+                let type = family.getType()
+                // decode type
+                let item = try containerCopy.decode(type)
+                items.append(item)
+            } catch let e as DecodingError {
+                switch e {
+                case let .dataCorrupted(context):
+                    if context.codingPath.last?.stringValue == F.discriminator.stringValue {
+                        print("WARNING: Unhandled key: \(context.debugDescription)")
+                        _ = try containerCopy.decode(F.BaseType.self)
+                    } else {
+                        throw e
+                    }
+                default: throw e
+                }
+            }
+        }
+        return items
+    }
 }
 
 extension JSONDecoder {
@@ -29,64 +68,41 @@ extension JSONDecoder {
     ///     - family: The ClassFamily enum type to decode with.
     ///     - data: The data to decode.
     /// - Returns: The list of decoded objects.
-    func decode<T: ClassFamily, U: Decodable>(family: T.Type, from data: Data) throws -> [U] {
-        try self.decode([ClassWrapper<T, U>].self, from: data).compactMap { $0.object }
+    func decode<F: DecodableClassFamily>(family: F.Type, from data: Data) throws -> [F.BaseType] {
+        try self.decode([ClassWrapper<F>].self, from: data).compactMap { $0.object }
     }
     
-    private class ClassWrapper<T: ClassFamily, U: Decodable>: Decodable {
+    private class ClassWrapper<F: DecodableClassFamily>: Decodable {
         /// The family enum containing the class information.
-        let family: T
-        /// The decoded object. Can be any subclass of U.
-        let object: U?
+        let family: F
+        /// The decoded object.
+        let object: F.BaseType
         
         required init(from decoder: Decoder) throws {
             let container = try decoder.container(keyedBy: Discriminator.self)
             // Decode the family with the discriminator.
-            family = try container.decode(T.self, forKey: T.discriminator)
+            family = try container.decode(F.self, forKey: F.discriminator)
             // Decode the object by initialising the corresponding type.
-            if let type = family.getType() as? U.Type {
-                object = try type.init(from: decoder)
-            } else {
-                object = nil
-            }
+            let type = family.getType()
+            object = try type.init(from: decoder)
         }
     }
 }
 
-private extension KeyedDecodingContainer {
+//=====================================================================================
+
+enum CommandFamily: String, DecodableClassFamily {
+    typealias BaseType = Command
     
-    /// Decode a heterogeneous list of objects for a given family.
-    /// - Parameters:
-    ///     - family: The ClassFamily enum for the type family.
-    ///     - key: The CodingKey to look up the list in the current container.
-    /// - Returns: The resulting list of heterogeneousType elements.
-    func decode<T : Decodable, U : ClassFamily>(family: U.Type, forKey key: K) throws -> [T] {
-        var container = try self.nestedUnkeyedContainer(forKey: key)
-        var list = [T]()
-        var tmpContainer = container
-        while !container.isAtEnd {
-            let typeContainer = try container.nestedContainer(keyedBy: Discriminator.self)
-            let family: U = try typeContainer.decode(U.self, forKey: U.discriminator)
-            if let type = family.getType() as? T.Type {
-                list.append(try tmpContainer.decode(type))
-            }
-        }
-        return list
-    }
-}
-
-enum CommandFamily: String, ClassFamily {
     case drawDeck
     case gainHealth
     
-    static var discriminator: Discriminator = .type
+    static var discriminator: Discriminator { .type }
     
-    func getType() -> AnyObject.Type {
+    func getType() -> Command.Type {
         switch self {
-        case .drawDeck:
-            return DrawDeck.self
-        case .gainHealth:
-            return GainHealth.self
+        case .drawDeck: return DrawDeck.self
+        case .gainHealth: return GainHealth.self
         }
     }
 }
