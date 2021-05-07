@@ -27,6 +27,10 @@
 		335A6D322573BD9900433DC6 /* HeterogenousDecoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335A6D302573BD9900433DC6 /* HeterogenousDecoding.swift */; };
 		3373135D2577494B0039E410 /* CommandFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3373135C2577494B0039E410 /* CommandFeed.swift */; };
 		3373135E2577494B0039E410 /* CommandFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3373135C2577494B0039E410 /* CommandFeed.swift */; };
+		33FBB19F2644D498004EB76C /* DeckToStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FBB19E2644D498004EB76C /* DeckToStore.swift */; };
+		33FBB1A42644D532004EB76C /* DeckToStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FBB19E2644D498004EB76C /* DeckToStore.swift */; };
+		33FBB1AA2644D9AE004EB76C /* DrawHand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FBB1A92644D9AE004EB76C /* DrawHand.swift */; };
+		33FBB1AB2644D9AE004EB76C /* DrawHand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FBB1A92644D9AE004EB76C /* DrawHand.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +61,8 @@
 		335A6D242573B2BB00433DC6 /* GainHealth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GainHealth.swift; sourceTree = "<group>"; };
 		335A6D302573BD9900433DC6 /* HeterogenousDecoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeterogenousDecoding.swift; sourceTree = "<group>"; };
 		3373135C2577494B0039E410 /* CommandFeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandFeed.swift; sourceTree = "<group>"; };
+		33FBB19E2644D498004EB76C /* DeckToStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckToStore.swift; sourceTree = "<group>"; };
+		33FBB1A92644D9AE004EB76C /* DrawHand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawHand.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,10 +138,12 @@
 		335404042573A3A7003E9E5F /* Impl */ = {
 			isa = PBXGroup;
 			children = (
-				334DE29A257381000029AFF5 /* DrawDeck.swift */,
-				335A6D242573B2BB00433DC6 /* GainHealth.swift */,
 				3373135C2577494B0039E410 /* CommandFeed.swift */,
 				334AF13D2577524C0060F2F8 /* CommandFamily.swift */,
+				334DE29A257381000029AFF5 /* DrawDeck.swift */,
+				335A6D242573B2BB00433DC6 /* GainHealth.swift */,
+				33FBB19E2644D498004EB76C /* DeckToStore.swift */,
+				33FBB1A92644D9AE004EB76C /* DrawHand.swift */,
 			);
 			path = Impl;
 			sourceTree = "<group>";
@@ -243,12 +251,14 @@
 				335A6D312573BD9900433DC6 /* HeterogenousDecoding.swift in Sources */,
 				334DE25B257376CC0029AFF5 /* ViewController.swift in Sources */,
 				334DE257257376CC0029AFF5 /* AppDelegate.swift in Sources */,
+				33FBB1AA2644D9AE004EB76C /* DrawHand.swift in Sources */,
 				334DE29B257381000029AFF5 /* DrawDeck.swift in Sources */,
 				334AF13E2577524C0060F2F8 /* CommandFamily.swift in Sources */,
 				335404002573A389003E9E5F /* Argument.swift in Sources */,
 				335A6D252573B2BB00433DC6 /* GainHealth.swift in Sources */,
 				334DE28E25737FB30029AFF5 /* Command.swift in Sources */,
 				3373135D2577494B0039E410 /* CommandFeed.swift in Sources */,
+				33FBB19F2644D498004EB76C /* DeckToStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,8 +268,10 @@
 			files = (
 				335404012573A389003E9E5F /* Argument.swift in Sources */,
 				3373135E2577494B0039E410 /* CommandFeed.swift in Sources */,
+				33FBB1AB2644D9AE004EB76C /* DrawHand.swift in Sources */,
 				334DE29C257381000029AFF5 /* DrawDeck.swift in Sources */,
 				335A6D322573BD9900433DC6 /* HeterogenousDecoding.swift in Sources */,
+				33FBB1A42644D532004EB76C /* DeckToStore.swift in Sources */,
 				334DE26E257376CD0029AFF5 /* ParsableCommandDemoTests.swift in Sources */,
 				335A6D262573B2BB00433DC6 /* GainHealth.swift in Sources */,
 				334DE2A0257381060029AFF5 /* Command.swift in Sources */,
@@ -348,7 +360,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -403,7 +415,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -456,7 +468,6 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = ParsableCommandDemoTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -465,7 +476,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.creativegames.ParsableCommandDemoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ParsableCommandDemo.app/ParsableCommandDemo";
 			};
 			name = Debug;
@@ -477,7 +487,6 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = ParsableCommandDemoTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -486,7 +495,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.creativegames.ParsableCommandDemoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ParsableCommandDemo.app/ParsableCommandDemo";
 			};
 			name = Release;

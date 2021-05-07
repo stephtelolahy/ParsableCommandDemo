@@ -5,11 +5,7 @@
 //  Created by Hugues Stéphano TELOLAHY on 29/11/2020.
 //
 
-protocol CommandProtocol {
-    func run() -> String
-}
-
-class Command: CommandProtocol, Decodable {
+class Command: Decodable {
     
     func run() ->String {
         fatalError("Should be implemented in child class")

@@ -11,6 +11,8 @@ enum CommandFamily: String, DecodableClassFamily {
     
     case drawDeck
     case gainHealth
+    case deckToStore
+    case drawHand
     
     static var discriminator: Discriminator { .type }
     
@@ -18,6 +20,8 @@ enum CommandFamily: String, DecodableClassFamily {
         switch self {
         case .drawDeck: return DrawDeck.self
         case .gainHealth: return GainHealth.self
+        case .deckToStore: return DeckToStore.self
+        case .drawHand: return DrawHand.self
         }
     }
 }

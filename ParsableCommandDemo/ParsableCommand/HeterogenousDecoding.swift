@@ -46,16 +46,7 @@ extension KeyedDecodingContainer {
                 let item = try containerCopy.decode(type)
                 items.append(item)
             } catch let e as DecodingError {
-                switch e {
-                case let .dataCorrupted(context):
-                    if context.codingPath.last?.stringValue == F.discriminator.stringValue {
-                        print("WARNING: Unhandled key: \(context.debugDescription)")
-                        _ = try containerCopy.decode(F.BaseType.self)
-                    } else {
-                        throw e
-                    }
-                default: throw e
-                }
+                throw e
             }
         }
         return items

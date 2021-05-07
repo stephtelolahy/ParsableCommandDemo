@@ -97,6 +97,15 @@ class ParsableCommandDemoTests: XCTestCase {
             {
               "type": "gainHealth",
               "player": "p1"
+            },
+            {
+            "type": "deckToStore",
+            "hidden": true
+            },
+            {
+            "type": "drawHand",
+            "player": "p1",
+            "other": "all"
             }
           ]
         }
@@ -106,9 +115,28 @@ class ParsableCommandDemoTests: XCTestCase {
         let feed = try decoder.decode(CommandFeed.self, from: data)
         
         let commands = feed.commands
-        XCTAssertEqual(commands.count, 2)
+        XCTAssertEqual(commands.count, 4)
         XCTAssertEqual(commands[0].run(), "p1 draws 1 cards from deck")
         XCTAssertEqual(commands[1].run(), "p1 gains health")
+        XCTAssertEqual(commands[2].run(), "deck to store 1 hidden: true")
+        XCTAssertEqual(commands[3].run(), "p1 draws card from all's hand")
+    }
+    
+    func test_ParseCommandFeedFails_IfUnknownType() throws {
+        let json = """
+                {
+                  "commands": [
+                    {
+                      "type": "unknown",
+                      "player": "p1"
+                    }
+                  ]
+                }
+        """
+        let data = try XCTUnwrap(json.data(using: .utf8))
+        let decoder = JSONDecoder()
+        
+        XCTAssertThrowsError(try decoder.decode(CommandFeed.self, from: data))
     }
     
 }
